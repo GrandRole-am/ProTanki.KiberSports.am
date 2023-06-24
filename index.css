@@ -1,0 +1,795 @@
+@font-face {
+  font-family: "NotoSansBold";
+  src: url("../fonts/NotoSansBold.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "NotoSansBold";
+}
+
+*:focus {
+  outline: none;
+}
+
+*,
+*::before,
+*::after {
+  transition: all 0.2s ease-in-out 0s;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+input[type="text"],
+input[type="password"] {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 1em 3em 1em 1em;
+  border: 0.0625em solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+input[type="checkbox"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 2.375em;
+  height: 2.375em;
+  appearance: unset;
+  border: 0.063em solid rgba(255, 255, 255, 0.2);
+  margin-left: 1em;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "";
+  background: url("../images/Correct.svg") 50% 50% / 70% 70% no-repeat;
+  width: 2.375em;
+  height: 2.375em;
+  position: relative;
+  display: flex;
+}
+
+input[type="checkbox"],
+input[type="sumbit"],
+input[type="file"],
+input[type="reset"],
+input[type="range"],
+input[type="radio"],
+input[type="button"],
+input[type="color"] {
+  cursor: pointer;
+}
+
+img,
+svg {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+::-webkit-selection {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+::-o-selection {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+::-moz-selection {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+::-ms-selection {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+::selection {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+body::-webkit-scrollbar {
+  width: 0.75em;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+body::-o-scrollbar {
+  width: 0.75em;
+}
+
+body::-o-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+body::-o-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+body::-moz-scrollbar {
+  width: 0.75em;
+}
+
+body::-moz-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+body::-moz-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+body::-ms-scrollbar {
+  width: 0.75em;
+}
+
+body::-ms-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+body::-ms-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+button {
+  cursor: pointer;
+}
+
+html,
+body {
+  background-color: rgba(17, 29, 40, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+  color: white;
+  height: 100%;
+  min-height: 100%;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom: 0.0625em solid rgba(125, 157, 186, 0.3);
+  z-index: 3;
+}
+
+header a:hover {
+  color: rgba(255, 188, 9, 1);
+}
+
+.HeaderShrink::before {
+  background-color: rgba(31, 44, 64, 1);
+  box-shadow: 0em 0em 1.25em rgba(31, 43, 64, 1);
+}
+
+.HeaderBody {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 5em;
+  align-items: center;
+}
+
+.Container {
+  max-width: 73.75em;
+  margin: 0em auto;
+}
+
+.HeaderLi {
+  display: flex;
+  font-size: 1.125em;
+  position: relative;
+  z-index: 3;
+}
+
+.HeaderLi li {
+  margin: 0em 0em 0em 1.25em;
+  display: flex;
+}
+
+.HeaderLogo {
+  font-size: 1.5625em;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+}
+
+.HeaderLogo img {
+  width: 2em;
+}
+
+.HeaderLogo span {
+  margin-top: 0.2em;
+  margin-left: 1em;
+}
+
+.HeaderMenu {
+  display: flex;
+  position: relative;
+  z-index: 4;
+}
+
+.MobileMenu {
+  display: none;
+}
+
+.LanguageSelection {
+  border-left: 0.0625em solid rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  padding: 0em 1.1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  margin-left: 2em;
+  margin-right: 3em;
+}
+
+.LanguageSelection img {
+  width: 1.5em;
+  height: 1em;
+  margin-right: 0.5em;
+  position: relative;
+  top: 0.2em;
+}
+
+.Lang {
+  display: flex;
+  margin-left: 1em;
+}
+
+.Lang li {
+  margin-right: 0.5em;
+  position: relative;
+  z-index: 3;
+  display: flex;
+}
+
+.Langs {
+  background-color: rgba(26, 50, 68, 1);
+  gap: 1.5em 0.7em;
+  min-width: 7em;
+  position: absolute;
+  top: 130%;
+  left: 0;
+  right: 0;
+  padding: 0.9em 0em;
+  margin-left: 1.1em;
+  display: none;
+  user-select: none;
+}
+
+.Langs li {
+  margin-left: 1em;
+}
+
+.Langs a {
+  display: flex;
+}
+
+.Langs span {
+  margin-top: 0.0625em;
+  margin-left: 0.25em;
+}
+
+.LangsActive {
+  display: flex;
+  flex-direction: column;
+}
+
+.Arrow {
+  width: 0.75em;
+  height: 0.75em;
+  border-left: 0.1875em solid rgba(255, 255, 255, 0.1);
+  border-bottom: 0.1875em solid rgba(255, 255, 255, 0.1);
+  margin-left: 0.5em;
+  position: relative;
+  z-index: 3;
+  transform: rotate(-47deg);
+}
+
+.Anim {
+  transform: rotate(-226deg);
+  top: 0.4em;
+}
+
+.VideoBackground {
+  -webkit-mask-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.67) 71%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(white, #00000000 50%);
+  z-index: 2;
+  overflow: hidden;
+  position: fixed;
+  top: -1em;
+  opacity: 0.4;
+  width: 100%;
+  height: 54.25em;
+}
+
+.VideoBackground video {
+  position: absolute;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.AnimationBackground {
+  background-image: repeating-linear-gradient(
+    rgba(0, 0, 0, 0) 0em,
+    rgba(0, 0, 120, 0.15) 0.3125em,
+    rgba(0, 0, 0, 0) 0.625em
+  );
+  animation: scroll 2s infinite linear;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  width: 100%;
+  height: calc(100vh + 1.25em);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(-1.25em);
+  }
+  to {
+    transform: translateY(0em);
+  }
+}
+
+main {
+  padding: 7.5em;
+  width: 100%;
+  z-index: 4;
+  flex: 1 1 auto;
+  margin: 1em auto 2em;
+}
+
+.HomeScreen {
+  width: 100%;
+  height: 34em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 7em;
+}
+
+.HomeScreenButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DownloadNone {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.DownloadNone span {
+  margin-left: 1em;
+}
+
+.DownloadNone svg {
+  fill: rgba(248, 81, 73, 1);
+  width: 3em;
+  height: 3em;
+  animation: 2s linear infinite pulse;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.Download {
+  background-color: rgba(54, 123, 240, 1);
+  box-shadow: inset 0 -0.43em rgb(0 0 0 / 20%),
+    0 0.125em 1.25em rgba(27, 81, 173, 1);
+  padding: 1.8em 6.55em;
+  border-radius: 0.43em;
+  cursor: default;
+  opacity: 0.6;
+}
+
+.Download:hover {
+  color: white;
+}
+
+.NewsBlock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6em;
+}
+
+.BigNews {
+  background: radial-gradient(transparent, rgba(33, 53, 90, 1) 88%),
+    url("../images/BigNews.webp") 43% 85% / 325%;
+  background-position-x: center;
+  background-position-y: top;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 23.125em;
+  height: 27em;
+  position: relative;
+  border-radius: 0.375em;
+  margin: 0em 1.125em 1.125em 0.625em;
+}
+
+.BigNews::before,
+.SmallNews::before {
+  content: attr(data-NewsDate);
+  margin: 1vh 1vh 1vh 2vh;
+}
+
+.BigNews::after,
+.SmallNews::after {
+  content: attr(data-NewsName);
+  margin: 2vh;
+}
+
+.FourNewsBlocks {
+  display: flex;
+  flex-direction: column;
+}
+
+.TopNews,
+.BottomNews {
+  display: flex;
+}
+
+.SmallNews {
+  background-color: black;
+  width: 300px;
+  height: 13em;
+  position: relative;
+  border-radius: 0.375em;
+  margin: 0em 1.125em 1.125em 0.625em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+footer {
+  background-color: rgba(17, 29, 40, 0.3);
+  border-top: 0.0625em solid rgba(106, 139, 156, 0.3);
+  position: relative;
+  z-index: 4;
+  padding: 3.125em 0em;
+}
+
+.Socials {
+  display: flex;
+  justify-content: center;
+}
+
+.Socials a {
+  border: 0.0625em solid rgba(255, 255, 255, 0.3);
+  padding: 0.625em 0.625em;
+  margin: 1em;
+}
+
+.Socials a:hover {
+  border: 0.0625em solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.Rules p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 1em;
+}
+
+@media (max-width: 1194px) {
+  .HeaderLogo {
+    margin-left: 1em;
+  }
+}
+
+@media (max-width: 991px) {
+  .BodyLock {
+    overflow: hidden;
+  }
+
+  header::before {
+    z-index: 5;
+  }
+
+  .MobileMenu {
+    display: block;
+    position: relative;
+    width: 1.875em;
+    height: 1.25em;
+    z-index: 5;
+    cursor: pointer;
+    margin-right: 0.9375em;
+  }
+
+  .MobileMenu:hover {
+    opacity: 0.8;
+  }
+
+  .MobileMenu span {
+    background-color: white;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0.125em;
+    top: 0.5625em;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  }
+
+  .MobileMenu::before,
+  .MobileMenu::after {
+    content: "";
+    background-color: white;
+    position: absolute;
+    height: 0.125em;
+    width: 100%;
+    left: 0;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  }
+
+  .MobileMenu::before {
+    cursor: pointer;
+    top: 0;
+  }
+
+  .MobileMenu::after {
+    cursor: pointer;
+    bottom: 0;
+  }
+
+  .HeaderMenu {
+    background-color: rgba(26, 50, 68, 0.77);
+    position: fixed;
+    overflow: auto;
+    top: -120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 6.25em 0.625em 1.25em 0.625em;
+    display: block;
+  }
+
+  .HeaderLogo {
+    position: relative;
+    z-index: 5;
+    margin-left: 0.9375em;
+  }
+
+  .HeaderLogo span {
+    margin-left: 0.5em;
+  }
+
+  .HeaderBody {
+    height: 3.75em;
+  }
+
+  .HeaderLi {
+    display: block;
+    margin-right: unset;
+  }
+
+  .HeaderLi li {
+    margin: 0em 0em 1.25em 0em;
+  }
+
+  .Langs li {
+    margin-left: unset;
+  }
+
+  .active::before {
+    transform: rotate(45deg);
+    top: 0.5625em;
+  }
+
+  .active::after {
+    transform: rotate(-45deg);
+    bottom: 0.5625em;
+  }
+
+  .active span {
+    transform: scale(0);
+  }
+
+  .MenuActive {
+    top: 0;
+  }
+
+  .HeaderMenu a {
+    width: 100%;
+    display: flex;
+    padding: 1em;
+    font-size: 1em;
+  }
+
+  .HeaderMenu li {
+    border-bottom: 0.0625em solid rgba(255, 255, 255, 0.15);
+  }
+
+  .HeaderMenu li:hover {
+    padding-left: 1em;
+    transition: all 0.5s ease;
+  }
+
+  .LanguageSelection {
+    border-left: unset;
+    margin-right: unset;
+    margin-left: unset;
+  }
+
+  .Lang {
+    display: none;
+  }
+
+  .Langs {
+    background-color: unset;
+    gap: unset;
+    padding: unset;
+    display: flex;
+    flex-direction: column;
+    margin-left: unset;
+  }
+
+  .Langs a:nth-child(2) {
+    display: flex;
+  }
+
+  main {
+    padding: unset;
+    margin-top: 5em;
+  }
+}
+
+@media (max-width: 600px) {
+  .HomeScreenButtons {
+    flex-direction: column;
+  }
+
+  .Tutorial {
+    margin-top: 1em;
+    margin-left: unset;
+  }
+}
+
+@media (max-width: 500px) {
+  .Socials {
+    gap: 2.625em;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 465px) {
+  .DownloadNone {
+    flex-direction: column;
+  }
+
+  .DownloadNone span {
+    margin-left: unset;
+    margin-top: 1em;
+  }
+}
+
+@media (max-width: 345px) {
+  .Download,
+  .Tutorial {
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+}
+
+@media (max-width: 330px) {
+  .Download,
+  .Tutorial {
+    padding: 1.5em 3.1875em;
+  }
+}
+
+@media (max-width: 252px) {
+  .Rules {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 250px) {
+  .HeaderLogo {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 190px) {
+  .Download,
+  .Tutorial {
+    padding: 1em 2em;
+  }
+}
+
+@media (max-width: 176px) {
+  .HeaderLogo {
+    font-size: 0.7em;
+  }
+
+  .HeaderLogo span {
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+  }
+}
+
+@media (max-width: 170px) {
+  .Rules {
+    font-size: 0.5em;
+  }
+}
+
+@media (max-width: 157px) {
+  .Download,
+  .Tutorial {
+    padding: 1em 1em;
+  }
+
+  .Download span,
+  .Tutorial span {
+    text-transform: unset;
+  }
+}
+
+@media (max-width: 162px) {
+  .MobileMenu {
+    margin-left: unset;
+  }
+}
